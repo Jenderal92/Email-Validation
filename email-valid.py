@@ -26,7 +26,10 @@ init(autoreset=True)
 
 def verifer_email(email):
 	try:
-		resp = requests.get('https://api.hunter.io/v2/email-verifier?email='+email+'&api_key='+base64.b64decode('YTQzNWM2NjVjYTU5NjViNDYxNTFhM2I0MGI1ZTY3MjllZmQ0NTBlMQ=='),timeout=10,headers={'User-Agent': 'Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Moblie Safari/537.36'})
+		#How can I get Apikey?
+		#You can buy api key from official site https://hunter.io/users/sign_up
+		APIKEY = "paste here"
+		resp = requests.get('https://api.hunter.io/v2/email-verifier?email='+email+'&api_key='+APIKEY,timeout=10,headers={'User-Agent': 'Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Moblie Safari/537.36'})
 		if '"status": "valid"' in resp.content:
 			print (Fore.YELLOW + "[+]" + Fore.RESET + email + ' - ' + Fore.GREEN + "[VALID]" + Fore.RESET)
 			open('email_valid.txt','a').write(email+'\n')
